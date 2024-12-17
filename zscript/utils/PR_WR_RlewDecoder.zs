@@ -1,10 +1,10 @@
-class PR_RlewDecoder
+class PR_WR_RlewDecoder
 {
-    static PR_ByteBuffer Decode(PR_ByteBuffer buffer, uint rlewTag)
+    static PR_WR_ByteBuffer Decode(PR_WR_ByteBuffer buffer, uint rlewTag)
     {
         uint decompressedDataLength = buffer.ReadUInt16LE(0);
-        PR_ByteBuffer compressedDataBuffer = buffer.Subarray(2, buffer.Size());
-        PR_ByteBuffer decompressedData = PR_ByteBuffer.Create(decompressedDataLength);
+        PR_WR_ByteBuffer compressedDataBuffer = buffer.Subarray(2, buffer.Size());
+        PR_WR_ByteBuffer decompressedData = PR_WR_ByteBuffer.Create(decompressedDataLength);
 
         uint outputOffset = 0;
         uint inputOffset = 0;

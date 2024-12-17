@@ -1,10 +1,10 @@
-class PR_ByteBuffer
+class PR_WR_ByteBuffer
 {
     Array<int> bytes;
 
-    static PR_ByteBuffer Create(uint size)
+    static PR_WR_ByteBuffer Create(uint size)
     {
-        PR_ByteBuffer buffer = new("PR_ByteBuffer");
+        PR_WR_ByteBuffer buffer = new("PR_WR_ByteBuffer");
         for (uint i = 0; i < size; i++)
         {
             buffer.bytes.Push(0);
@@ -12,11 +12,11 @@ class PR_ByteBuffer
         return buffer;
     }
 
-    static PR_ByteBuffer CreateFromString(string stringBuffer)
+    static PR_WR_ByteBuffer CreateFromString(string stringBuffer)
     {
         uint bufferSize = stringBuffer.Length();
 
-        PR_ByteBuffer buffer = PR_ByteBuffer.Create(bufferSize);
+        PR_WR_ByteBuffer buffer = PR_WR_ByteBuffer.Create(bufferSize);
         for (uint i = 0; i < bufferSize; i++)
         {
             buffer.bytes[i] = stringBuffer.ByteAt(i);
@@ -24,9 +24,9 @@ class PR_ByteBuffer
         return buffer;
     }
 
-    PR_ByteBuffer Subarray(uint start, uint end)
+    PR_WR_ByteBuffer Subarray(uint start, uint end)
     {
-        PR_ByteBuffer newBuffer = PR_ByteBuffer.Create(end - start);
+        PR_WR_ByteBuffer newBuffer = PR_WR_ByteBuffer.Create(end - start);
         for (uint i = start; i < end; i++)
         {
             newBuffer.bytes[i - start] = bytes[i];

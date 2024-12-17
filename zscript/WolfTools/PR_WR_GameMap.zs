@@ -1,23 +1,23 @@
-class PR_GameMap
+class PR_WR_GameMap
 {
-    PR_GameMapHeader header;
+    PR_WR_GameMapHeader header;
 
-    PR_ByteBuffer plane0Buffer;
-    PR_ByteBuffer plane1Buffer;
-    PR_ByteBuffer plane2Buffer;
+    PR_WR_ByteBuffer plane0Buffer;
+    PR_WR_ByteBuffer plane1Buffer;
+    PR_WR_ByteBuffer plane2Buffer;
 
     Array<uint> plane0;
     Array<uint> plane1;
     Array<uint> plane2;
 
-    static PR_GameMap Create(
-        PR_GameMapHeader header,
-        PR_ByteBuffer plane0Buffer,
-        PR_ByteBuffer plane1Buffer,
-        PR_ByteBuffer plane2Buffer
+    static PR_WR_GameMap Create(
+        PR_WR_GameMapHeader header,
+        PR_WR_ByteBuffer plane0Buffer,
+        PR_WR_ByteBuffer plane1Buffer,
+        PR_WR_ByteBuffer plane2Buffer
     )
     {
-        PR_GameMap gamemap = new("PR_GameMap");
+        PR_WR_GameMap gamemap = new("PR_WR_GameMap");
 
         gamemap.header = header;
         gamemap.plane0Buffer = plane0Buffer;

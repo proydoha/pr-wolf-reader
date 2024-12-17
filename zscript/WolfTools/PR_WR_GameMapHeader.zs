@@ -1,4 +1,4 @@
-class PR_GameMapHeader
+class PR_WR_GameMapHeader
 {
     uint plane0Offset; // Walls, floors, doors
     uint plane1Offset; // Pickups and decorations
@@ -11,12 +11,12 @@ class PR_GameMapHeader
     string name;
     string signature;
 
-    static PR_GameMapHeader Create(PR_ByteBuffer buffer, uint offset)
+    static PR_WR_GameMapHeader Create(PR_WR_ByteBuffer buffer, uint offset)
     {
-        PR_GameMapHeader header = new("PR_GameMapHeader");
+        PR_WR_GameMapHeader header = new("PR_WR_GameMapHeader");
 
         uint headerSize = 42;
-        PR_ByteBuffer headerBuffer = buffer.Subarray(offset, offset + headerSize);
+        PR_WR_ByteBuffer headerBuffer = buffer.Subarray(offset, offset + headerSize);
 
         header.plane0Offset = headerBuffer.ReadUInt32LE(0);
         header.plane1Offset = headerBuffer.ReadUInt32LE(4);

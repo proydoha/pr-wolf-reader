@@ -1,12 +1,12 @@
-class PR_MapHeadReader
+class PR_WR_MapHeadReader
 {
-    static PR_MapHead Read(PR_ByteBuffer buffer)
+    static PR_WR_MapHead Read(PR_WR_ByteBuffer buffer)
     {
         uint headerSize = 2;
         uint maxLevelCount = 100;
 
         uint rlewTag = buffer.ReadUInt16LE(0);
-        PR_MapHead maphead = PR_MapHead.Create(rlewTag);
+        PR_WR_MapHead maphead = PR_WR_MapHead.Create(rlewTag);
 
         for (uint i = 0; i < maxLevelCount; i++)
         {
