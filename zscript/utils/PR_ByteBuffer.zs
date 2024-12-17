@@ -7,7 +7,7 @@ class PR_ByteBuffer
         PR_ByteBuffer buffer = new("PR_ByteBuffer");
         for (uint i = 0; i < size; i++)
         {
-            buffer.bytes.push(0);
+            buffer.bytes.Push(0);
         }
         return buffer;
     }

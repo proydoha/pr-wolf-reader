@@ -10,6 +10,6 @@ class PR_GameMapsContainer
 
     void AddMap(PR_GameMap gamemap)
     {
-        gamemaps.push(gamemap);
+        gamemaps.Push(gamemap);
     }
 }

@@ -14,6 +14,6 @@ class PR_WolfReaderStaticHandler : StaticEventHandler
         PR_ByteBuffer gamemapsBuffer = PR_ByteBuffer.CreateFromString(gamemapsLumpContents);
 
         PR_MapHead maphead = PR_MapHeadReader.Read(mapHeadBuffer);
-        PR_GameMapReader.Read(gamemapsBuffer, maphead);
+        PR_GameMapsContainer mapContainer = PR_GameMapReader.Read(gamemapsBuffer, maphead);
     }
 }

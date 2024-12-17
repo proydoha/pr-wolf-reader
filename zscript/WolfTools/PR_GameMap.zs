@@ -26,15 +26,15 @@ class PR_GameMap
 
         for (uint i = 0; i < plane0Buffer.Size() / 2; i++)
         {
-            gamemap.plane0.push(plane0Buffer.ReadUInt16LE(i * 2));
+            gamemap.plane0.Push(plane0Buffer.ReadUInt16LE(i * 2));
         }
         for (uint i = 0; i < plane1Buffer.Size() / 2; i++)
         {
-            gamemap.plane1.push(plane1Buffer.ReadUInt16LE(i * 2));
+            gamemap.plane1.Push(plane1Buffer.ReadUInt16LE(i * 2));
         }
         for (uint i = 0; i < plane2Buffer.Size() / 2; i++)
         {
-            gamemap.plane2.push(plane2Buffer.ReadUInt16LE(i * 2));
+            gamemap.plane2.Push(plane2Buffer.ReadUInt16LE(i * 2));
         }
 
         return gamemap;
@@ -57,10 +57,10 @@ class PR_GameMap
 
     void DebugPrintPlane0()
     {
-        for (int i = 0; i < header.height; i++)
+        for (uint i = 0; i < header.height; i++)
         {
             string mapRow = "";
-            for (int j = 0; j < header.width; j++)
+            for (uint j = 0; j < header.width; j++)
             {
                 mapRow = mapRow .. " " .. String.Format("%03i", GetPlane0Value(j, i));
             }
@@ -70,10 +70,10 @@ class PR_GameMap
 
     void DebugPrintPlane1()
     {
-        for (int i = 0; i < header.height; i++)
+        for (uint i = 0; i < header.height; i++)
         {
             string mapRow = "";
-            for (int j = 0; j < header.width; j++)
+            for (uint j = 0; j < header.width; j++)
             {
                 mapRow = mapRow .. " " .. String.Format("%03i", GetPlane1Value(j, i));
             }
@@ -83,10 +83,10 @@ class PR_GameMap
 
     void DebugPrintPlane2()
     {
-        for (int i = 0; i < header.height; i++)
+        for (uint i = 0; i < header.height; i++)
         {
             string mapRow = "";
-            for (int j = 0; j < header.width; j++)
+            for (uint j = 0; j < header.width; j++)
             {
                 mapRow = mapRow .. " " .. String.Format("%03i", GetPlane2Value(j, i));
             }
