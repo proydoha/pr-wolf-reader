@@ -11,7 +11,7 @@ class PR_MapHeadReader
         for (uint i = 0; i < maxLevelCount; i++)
         {
             uint bufferOffset = headerSize + i * 4;
-            if (bufferOffset + 4 >= buffer.bytes.Size()) { break; }
+            if (bufferOffset + 4 >= uint(buffer.bytes.Size())) { break; }
             uint offset = buffer.ReadUInt32LE(headerSize + i * 4);
             maphead.levelOffsets.push(offset);
         }

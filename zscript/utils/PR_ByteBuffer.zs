@@ -24,6 +24,21 @@ class PR_ByteBuffer
         return buffer;
     }
 
+    PR_ByteBuffer Subarray(uint start, uint end)
+    {
+        PR_ByteBuffer newBuffer = PR_ByteBuffer.Create(end - start);
+        for (uint i = start; i < end; i++)
+        {
+            newBuffer.bytes[i - start] = bytes[i];
+        }
+        return newBuffer;
+    }
+
+    uint Size()
+    {
+        return bytes.Size();
+    }
+
     uint ReadUInt8(int offset)
     {
         return bytes[offset];
@@ -37,6 +52,27 @@ class PR_ByteBuffer
     uint ReadUInt32LE(int offset)
     {
         return bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16) | (bytes[offset + 3] << 24);
+    }
+
+    void WriteUInt8(uint value, int offset)
+    {
+        bytes[offset] = value & 0xFF;
+    }
+
+    void WriteUInt16LE(uint value, int offset)
+    {
+        bytes[offset] = value & 0xFF;
+        bytes[offset + 1] = (value >> 8) & 0xFF;
+    }
+
+    string ToString(uint start, uint end)
+    {
+        string result = "";
+        for (uint i = start; i < end; i++)
+        {
+            result.AppendCharacter(bytes[i]);
+        }
+        return result;
     }
 
     void DumpToConsoleHex()
