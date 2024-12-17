@@ -1,7 +1,7 @@
 class PR_MapHead
 {
     uint rlewTag;
-    Array<uint> levelOffsets;
+    Array<uint> mapOffsets;
 
     static PR_MapHead Create(uint rlewTag)
     {

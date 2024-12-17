@@ -2,16 +2,16 @@ class PR_GameMapReader
 {
     static PR_GameMapsContainer Read(PR_ByteBuffer buffer, PR_MapHead maphead)
     {
-        PR_GameMapsContainer decodedLevels = PR_GameMapsContainer.Create();
+        PR_GameMapsContainer decodedMaps = PR_GameMapsContainer.Create();
 
-        for (uint i = 0; i < uint(maphead.levelOffsets.Size()); i++)
+        for (uint i = 0; i < uint(maphead.mapOffsets.Size()); i++)
         {
-            uint offset = maphead.levelOffsets[i];
+            uint offset = maphead.mapOffsets[i];
             if (offset < 1) {
                 continue;
             }
 
-            PR_GameMapHeader header = PR_GameMapHeader.Create(buffer, maphead.levelOffsets[i]);
+            PR_GameMapHeader header = PR_GameMapHeader.Create(buffer, maphead.mapOffsets[i]);
 
             PR_ByteBuffer plane0CarmackEncoded = buffer.Subarray(header.plane0Offset, header.plane0Offset + header.plane0Size);
             PR_ByteBuffer plane0RlewEncoded = PR_CarmackDecoder.Decode(plane0CarmackEncoded);
@@ -27,8 +27,8 @@ class PR_GameMapReader
 
             PR_GameMap gamemap = PR_GameMap.Create(header, plane0RlewDecoded, plane1RlewDecoded, plane2RlewDecoded);
 
-            decodedLevels.AddMap(gamemap);
+            decodedMaps.AddMap(gamemap);
         }
-        return decodedLevels;
+        return decodedMaps;
     }
 }

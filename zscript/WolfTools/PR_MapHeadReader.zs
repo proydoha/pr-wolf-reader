@@ -13,7 +13,7 @@ class PR_MapHeadReader
             uint bufferOffset = headerSize + i * 4;
             if (bufferOffset + 4 >= uint(buffer.bytes.Size())) { break; }
             uint offset = buffer.ReadUInt32LE(headerSize + i * 4);
-            maphead.levelOffsets.push(offset);
+            maphead.mapOffsets.push(offset);
         }
 
         return maphead;
