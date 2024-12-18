@@ -14,3 +14,7 @@ version "4.11"
 #include "zscript/WolfTools/PR_WR_GameMapsContainer.zs"
 #include "zscript/WolfTools/PR_WR_GameMapHeader.zs"
 #include "zscript/WolfTools/PR_WR_GameMapReader.zs"
+
+#include "zscript/WolfTools/PR_WR_VSwapHeader.zs"
+#include "zscript/WolfTools/PR_WR_VSwap.zs"
+#include "zscript/WolfTools/PR_WR_VSwapReader.zs"
