@@ -18,3 +18,5 @@ version "4.11"
 #include "zscript/WolfTools/PR_WR_VSwapHeader.zs"
 #include "zscript/WolfTools/PR_WR_VSwap.zs"
 #include "zscript/WolfTools/PR_WR_VSwapReader.zs"
+
+#include "zscript/WolfTools/PR_WR_TextureContainer.zs"

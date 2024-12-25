@@ -61,8 +61,16 @@ class PR_WR_ByteBuffer
 
     void WriteUInt16LE(uint value, int offset)
     {
+        bytes[offset] = value;
+        bytes[offset + 1] = (value >> 8);
+    }
+
+    void WriteUInt32LE(uint value, int offset)
+    {
         bytes[offset] = value & 0xFF;
         bytes[offset + 1] = (value >> 8) & 0xFF;
+        bytes[offset + 2] = (value >> 16) & 0xFF;
+        bytes[offset + 3] = (value >> 24) & 0xFF;
     }
 
     string ToString(uint start, uint end)
