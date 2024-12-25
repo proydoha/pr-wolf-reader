@@ -20,3 +20,6 @@ version "4.11"
 #include "zscript/WolfTools/PR_WR_VSwapReader.zs"
 
 #include "zscript/WolfTools/PR_WR_TextureContainer.zs"
+#include "zscript/WolfTools/PR_WR_SpriteHeader.zs"
+#include "zscript/WolfTools/PR_WR_SpritePost.zs"
+#include "zscript/WolfTools/PR_WR_Sprite.zs"

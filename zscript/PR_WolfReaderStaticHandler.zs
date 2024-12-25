@@ -22,12 +22,13 @@ class PR_WolfReaderStaticHandler : StaticEventHandler
         PR_WR_GameMapsContainer mapContainer = PR_WR_GameMapReader.Read(gamemapsBuffer, maphead);
         PR_WR_VSwap vswap = PR_WR_VSwapReader.Read(vswapBuffer);
 
-        container = PR_WR_TextureContainer.Create(vswap, "WOLF3DWALL");
+        container = PR_WR_TextureContainer.Create(vswap, "WOLF3DWALL", "WOLF3DSPRITE");
     }
 
     override void RenderOverlay(RenderEvent e)
     {
-        DebugDrawWallTextures(container);
+        // DebugDrawWallTextures(container);
+        // DebugDrawSpriteTextures(container);
     }
 
     private ui void DebugDrawWallTextures(PR_WR_TextureContainer container)
@@ -40,6 +41,19 @@ class PR_WolfReaderStaticHandler : StaticEventHandler
             int x = (i % columnsPerRow) * textureWidth;
             int y = (i / columnsPerRow) * textureHeight;
             Screen.DrawTexture(container.wallTextures[i], false, x, y);
+        }
+    }
+
+    private ui void DebugDrawSpriteTextures(PR_WR_TextureContainer container)
+    {
+        int textureWidth = 64;
+        int textureHeight = 64;
+        int columnsPerRow = Screen.GetWidth() / textureWidth;
+        for (int i = 0; i < container.spriteTextures.Size(); i++)
+        {
+            int x = (i % columnsPerRow) * textureWidth;
+            int y = (i / columnsPerRow) * textureHeight;
+            Screen.DrawTexture(container.spriteTextures[i], false, x, y);
         }
     }
 }
