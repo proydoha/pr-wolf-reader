@@ -18,11 +18,13 @@ class PR_WolfReaderStaticHandler : StaticEventHandler
         PR_WR_ByteBuffer gamemapsBuffer = PR_WR_ByteBuffer.CreateFromString(gamemapsLumpContents);
         PR_WR_ByteBuffer vswapBuffer = PR_WR_ByteBuffer.CreateFromString(vswapContents);
 
-        PR_WR_MapHead maphead = PR_WR_MapHeadReader.Read(mapHeadBuffer);
-        PR_WR_GameMapsContainer mapContainer = PR_WR_GameMapReader.Read(gamemapsBuffer, maphead);
-        PR_WR_VSwap vswap = PR_WR_VSwapReader.Read(vswapBuffer);
+        PR_WR_MapHead maphead = PR_WR_MapHead.Create(mapHeadBuffer);
+        PR_WR_GameMapsContainer mapContainer = PR_WR_GameMapsContainer.Create(gamemapsBuffer, maphead);
+        PR_WR_VSwap vswap = PR_WR_VSwap.Create(vswapBuffer);
 
         container = PR_WR_TextureContainer.Create(vswap, "WOLF3DWALL", "WOLF3DSPRITE");
+
+        mapContainer.gamemaps[0].DebugPrintPlane(mapContainer.gamemaps[0].planes[0]);
     }
 
     override void RenderOverlay(RenderEvent e)

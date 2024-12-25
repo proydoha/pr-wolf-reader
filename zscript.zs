@@ -8,16 +8,14 @@ version "4.11"
 #include "zscript/PR_WolfReaderStaticHandler.zs"
 
 #include "zscript/WolfTools/PR_WR_MapHead.zs"
-#include "zscript/WolfTools/PR_WR_MapHeadReader.zs"
 
+#include "zscript/WolfTools/PR_WR_Plane.zs"
 #include "zscript/WolfTools/PR_WR_GameMap.zs"
 #include "zscript/WolfTools/PR_WR_GameMapsContainer.zs"
 #include "zscript/WolfTools/PR_WR_GameMapHeader.zs"
-#include "zscript/WolfTools/PR_WR_GameMapReader.zs"
 
 #include "zscript/WolfTools/PR_WR_VSwapHeader.zs"
 #include "zscript/WolfTools/PR_WR_VSwap.zs"
-#include "zscript/WolfTools/PR_WR_VSwapReader.zs"
 
 #include "zscript/WolfTools/PR_WR_TextureContainer.zs"
 #include "zscript/WolfTools/PR_WR_SpriteHeader.zs"
