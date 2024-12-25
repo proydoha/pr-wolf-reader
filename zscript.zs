@@ -21,3 +21,6 @@ version "4.11"
 #include "zscript/WolfTools/PR_WR_SpriteHeader.zs"
 #include "zscript/WolfTools/PR_WR_SpritePost.zs"
 #include "zscript/WolfTools/PR_WR_Sprite.zs"
+
+#include "zscript/utils/PR_WR_Enums.zs"
+#include "zscript/SectorTools/PR_WR_SectorTools.zs"
